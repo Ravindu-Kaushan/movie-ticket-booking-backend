@@ -62,7 +62,7 @@ Alternative (PowerShell):
 $env:DB_PASSWORD="your_mysql_password"
 $env:JWT_SECRET="your_long_secret_key"
 mvn spring-boot:run
-
+``` 
 
 ## Entity Relationship Diagram (ERD)
 
