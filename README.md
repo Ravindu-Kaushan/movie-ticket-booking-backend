@@ -4,7 +4,7 @@ IJSE CMJD 114/115 Final Coursework - Assignment 1 (Spring Boot + MySQL)
 
 ## Entity Relationship Diagram (ERD)
 
-mermaid
+```mermaid
 erDiagram
     USERS ||--o{ BOOKINGS : makes
     SHOWS ||--o{ BOOKINGS : has
@@ -73,3 +73,4 @@ erDiagram
         varchar payment_method
         varchar status
     }
+```
