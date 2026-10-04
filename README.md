@@ -273,3 +273,51 @@ Sample response:
 
 ### Process Payment
 `PUT /api/payments/1/process?success=true` (Bearer token required, no body)
+
+## Future Expansion Proposal
+
+### 1. Discount and Promo Code System
+
+**Proposed feature:** Customers can enter a promo code (for example `MOVIE10`) when booking tickets, and the system reduces the total amount by a percentage or a fixed value.
+
+**Why it is useful:** Promo codes attract more customers, help the theatre run offers on slow days, and give admins control over marketing campaigns.
+
+**Existing entities affected:**
+- `Booking`: needs a new field for the discount amount, and a link to the promo code used. The total amount calculation changes to: ticket price x tickets - discount.
+- `Payment`: the payment amount will use the discounted total.
+
+**New entities required:** Yes, a new `PromoCode` entity (id, code, discountType, discountValue, expiryDate, usageLimit, status).
+
+**Database relationship extension:**
+- `PromoCode` 1:M `Booking` (one promo code can be used in many bookings, each booking uses at most one promo code).
+- A new foreign key column `promo_code_id` is added to the `bookings` table.
+
+### 2. Movie Reviews and Ratings
+
+**Proposed feature:** Customers who have a CONFIRMED booking for a movie can give a star rating (1 to 5) and write a review. The movie page shows the average rating.
+
+**Why it is useful:** Reviews help other customers choose a movie, and increase user engagement. Only customers with a confirmed booking can review, so the reviews are genuine.
+
+**Existing entities affected:**
+- `Movie`: can store an average rating, or the average can be calculated from reviews.
+- `User`: a user can write many reviews.
+
+**New entities required:** Yes, a new `Review` entity (id, rating, comment, reviewDate).
+
+**Database relationship extension:**
+- `User` 1:M `Review` (a user writes many reviews).
+- `Movie` 1:M `Review` (a movie has many reviews).
+- The `reviews` table has two foreign keys: `user_id` and `movie_id`.
+- A unique constraint on (`user_id`, `movie_id`) so one user can review a movie only once.
+
+## Repository Submission
+
+The source code is hosted on GitHub. The repository contains `README.md`, `.gitignore` and `pom.xml`.
+
+Repository URL: https://github.com/rkaushan/movie-ticket-booking-backend
+
+Submission process:
+1. Initialize Git in the project folder and commit the code (`git init`, `git add .`, `git commit`).
+2. Create a public repository on GitHub and add it as the remote (`git remote add origin <url>`).
+3. Push the code to the `main` branch (`git push`).
+4. Submit the repository URL.
