@@ -1,8 +1,6 @@
 # Movie Ticket Booking System - Backend
 
-IJSE CMJD 114/115 Final Coursework
-
-- Assignment 1 (Spring Boot + MySQL)
+Spring Boot + MySQL 
 ## Project Description
 
 A backend REST API for an Online Movie Ticket Booking platform. Customers can browse movies, view shows, select seats, book tickets and make payments. Administrators can manage users, movies, theatres, shows, bookings and payments. The system is secured with Spring Security and JWT authentication.
@@ -43,7 +41,7 @@ CREATE DATABASE movie_ticket_booking;
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/rkaushan/movie-ticket-booking-backend.git
+git clone https://github.com/Ravindu-Kaushan/movie-ticket-booking-backend
 ```
 
 2. Open the project in IntelliJ IDEA.
@@ -314,7 +312,7 @@ Sample response:
 
 The source code is hosted on GitHub. The repository contains `README.md`, `.gitignore` and `pom.xml`.
 
-Repository URL: https://github.com/rkaushan/movie-ticket-booking-backend
+Repository URL: https://github.com/Ravindu-Kaushan/movie-ticket-booking-backend
 
 Submission process:
 1. Initialize Git in the project folder and commit the code (`git init`, `git add .`, `git commit`).
